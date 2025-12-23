@@ -1,5 +1,6 @@
-import StatCard from "@/components/ui/StatCard";
-import { dashboardStats } from "@/data/mockData";
+import StatCard from "../components/ui/StatCard";
+import { dashboardStats } from "../data/mockData";
+
 
 export default function DashboardPage() {
   return (
