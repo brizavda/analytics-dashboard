@@ -1,6 +1,4 @@
-import MobileSidebar from "../components/MobileSidebar";
 import Sidebar from "../components/Sidebar";
-
 
 import UsersOrdersChart from "@/app/components/ui/UsersOrdersChart";
 import DashboardHeader from "../components/ui/DashboardHeader";
@@ -13,14 +11,11 @@ export default function DashboardPage() {
   return (
     <div className="flex min-h-screen bg-black text-white">
       
-      {/* SIDEBAR */}
+      {/* SIDEBAR (desktop + mobile) */}
       <Sidebar />
 
-      {/* SIDEBAR MOBILE */}
-      <MobileSidebar />
-
       {/* MAIN CONTENT */}
-      <main className="flex-1 lg:ml-64 px-4 sm:px-8 xl:px-12 py-10 space-y-10 max-w-[1400px] mx-auto">
+      <main className="flex-1 lg:ml-64 px-6 sm:px-10 xl:px-14 py-10 space-y-10 max-w-[1400px] mx-auto w-full">
         
         {/* HEADER */}
         <DashboardHeader />
