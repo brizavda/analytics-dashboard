@@ -20,7 +20,7 @@ export default function DashboardPage() {
       <MobileSidebar />
 
       {/* MAIN CONTENT */}
-      <main className="flex-1 lg:ml-64 px-6 py-8 space-y-8">
+      <main className="flex-1 lg:ml-64 px-4 sm:px-8 xl:px-12 py-10 space-y-10 max-w-[1400px] mx-auto">
         
         {/* HEADER */}
         <DashboardHeader />

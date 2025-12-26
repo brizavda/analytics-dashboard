@@ -16,7 +16,7 @@ export default function Sidebar() {
       <div className="flex flex-col w-full px-6 py-8">
         {/* Logo */}
         <h2 className="text-xl font-bold text-white mb-10">
-          <span className="text-rose-500">Analytics</span> 🌸
+          <span className="text-rose-500">Analytics</span> 
         </h2>
 
         {/* Navigation */}

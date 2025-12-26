@@ -13,7 +13,7 @@ export default function MobileSidebar() {
       {/* Button */}
       <button
         onClick={() => setOpen(true)}
-        className="lg:hidden fixed top-5 left-5 z-50 bg-rose-500 text-white p-2 rounded-lg"
+        className="fixed top-4 left-4 z-50 bg-rose-500 text-white p-2 rounded-lg lg:hidden"
       >
         <Menu size={20} />
       </button>
@@ -23,7 +23,7 @@ export default function MobileSidebar() {
           <>
             {/* Overlay */}
             <motion.div
-              className="fixed inset-0 bg-black/60 z-40"
+              className="fixed inset-y-0 left-0 z-40 w-64 bg-black"
               onClick={() => setOpen(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -40,7 +40,7 @@ export default function MobileSidebar() {
             >
               <div className="flex justify-between items-center mb-8">
                 <h2 className="text-xl font-bold text-white">
-                  Analytics <span className="text-rose-500">🌸</span>
+                  Analytics <span className="text-rose-500"></span>
                 </h2>
                 <button onClick={() => setOpen(false)}>
                   <X className="text-white" />
