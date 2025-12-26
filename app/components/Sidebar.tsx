@@ -22,16 +22,20 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       {open && (
         <div
           onClick={onClose}
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
         />
       )}
 
       <aside
         className="
-          fixed top-0 left-0 h-screen w-64
+          fixed inset-y-0 left-0 z-50 w-64
+          backdrop-blur-xl
           bg-[var(--card)]
           border-r border-[var(--border)]
           text-[var(--foreground)]
+          shadow-xl
+          transition-transform duration-300
+          lg:translate-x-0
         "
       >
 
