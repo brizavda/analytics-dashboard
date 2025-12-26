@@ -1,22 +1,25 @@
+import UsersOrdersChart from "@/app/components/ui/UsersOrdersChart";
 import DashboardHeader from "../components/ui/DashboardHeader";
+import RevenueChart from "../components/ui/RevenueChart";
 import StatCard from "../components/ui/StatCard";
 import { dashboardStats } from "../data/mockData";
 
 export default function DashboardPage() {
   return (
-    <main className="p-8 max-w-6xl mx-auto">
+    <div className="p-8 space-y-8">
+      
+      {/* HEADER */}
       <DashboardHeader />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* STATS */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {dashboardStats.map((stat) => (
-          <StatCard
-            key={stat.id}
-            label={stat.label}
-            value={stat.value}
-            change={stat.change}
-          />
+          <StatCard key={stat.id} {...stat} />
         ))}
-      </div>
-    </main>
+        <RevenueChart />
+        <UsersOrdersChart />
+      </section>
+
+    </div>
   );
 }

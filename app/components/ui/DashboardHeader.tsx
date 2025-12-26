@@ -1,26 +1,21 @@
-import { format } from "date-fns";
 
 export default function DashboardHeader() {
-  const today = format(new Date(), "EEEE, MMMM d");
-
   return (
-    <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
-      {/* Left side */}
+    <header className="flex items-center justify-between">
       <div>
-        <h2 className="text-2xl font-bold text-gray-800">
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">
           Welcome back, <span className="text-rose-500">Italia</span> 🌸
-        </h2>
-        <p className="text-sm text-gray-500 mt-1">
-          {today}
+        </h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          Thursday, December 25
         </p>
       </div>
 
-      {/* Right side */}
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 font-bold">
+        <div className="h-9 w-9 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-500 font-semibold">
           I
         </div>
-        <span className="text-sm font-medium text-gray-700">
+        <span className="text-sm text-gray-700 dark:text-gray-300">
           Italia Barrón
         </span>
       </div>
