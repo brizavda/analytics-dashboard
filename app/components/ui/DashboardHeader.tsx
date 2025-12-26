@@ -1,4 +1,8 @@
 "use client";
+import ThemeToggle from "./ThemeToggle";
+
+
+import { Menu } from "lucide-react";
 
 interface DashboardHeaderProps {
   onMenuClick: () => void;
@@ -8,18 +12,17 @@ export default function DashboardHeader({
   onMenuClick,
 }: DashboardHeaderProps) {
   return (
-    <header className="relative flex items-start justify-between gap-4">
+    <header className="relative flex items-center justify-between">
       
-      {/* Botón hamburguesa (solo mobile) */}
+      {/* Hamburguesa SOLO mobile */}
       <button
         onClick={onMenuClick}
         className="lg:hidden bg-rose-500 text-white p-2 rounded-xl"
       >
-        ☰
+        <Menu size={20} />
       </button>
 
-      {/* Texto bienvenida */}
-      <div>
+      <div className="flex-1 text-center lg:text-left lg:ml-0">
         <h1 className="text-3xl font-bold">
           Welcome back, <span className="text-rose-500">Italia</span>
         </h1>
@@ -29,13 +32,15 @@ export default function DashboardHeader({
       </div>
 
       {/* Usuario */}
-      <div className="hidden sm:flex items-center gap-3 ml-auto">
+      <div className="flex items-center gap-4">
+        <ThemeToggle />
         <div className="w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-400 font-bold">
           I
         </div>
-        <span className="text-sm text-gray-300">Italia Barrón</span>
+        <span className="hidden sm:block text-sm text-gray-300">
+          Italia Barrón
+        </span>
       </div>
-
     </header>
   );
 }

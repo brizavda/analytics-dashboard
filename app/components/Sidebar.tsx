@@ -1,8 +1,7 @@
 "use client";
 
-import { BarChart3, LayoutDashboard, Menu, Settings, Users } from "lucide-react";
+import { BarChart3, LayoutDashboard, Settings, Users } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -11,44 +10,43 @@ const navItems = [
   { label: "Settings", href: "/dashboard", icon: Settings },
 ];
 
-export default function Sidebar() {
-  const [open, setOpen] = useState(false);
+interface SidebarProps {
+  open: boolean;
+  onClose: () => void;
+}
 
+export default function Sidebar({ open, onClose }: SidebarProps) {
   return (
     <>
-      {/* HAMBURGER — SOLO MOBILE */}
-      <button
-        onClick={() => setOpen(true)}
-        className="lg:hidden fixed top-6 left-6 z-50 p-2 rounded-lg bg-rose-500 text-white shadow-lg"
-      >
-        <Menu size={20} />
-      </button>
-
-      {/* OVERLAY MOBILE */}
+      {/* Overlay mobile */}
       {open && (
         <div
-          onClick={() => setOpen(false)}
+          onClick={onClose}
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
         />
       )}
 
-      {/* SIDEBAR */}
-      <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-64 bg-[#0f0f14] border-r border-white/5 z-40">
-
-        <div className="flex flex-col w-full px-6 py-8">
-          {/* LOGO */}
+      <aside
+        className={`
+          fixed top-0 left-0 z-50 h-screen w-64
+          bg-[#0f0f14] border-r border-white/5
+          transform transition-transform duration-300
+          ${open ? "translate-x-0" : "-translate-x-full"}
+          lg:translate-x-0
+        `}
+      >
+        <div className="flex flex-col px-6 py-8">
           <h2 className="text-xl font-bold text-white mb-10">
             <span className="text-rose-500">Analytics</span>
           </h2>
 
-          {/* NAVIGATION */}
           <nav className="flex flex-col gap-3">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-rose-500/10 transition"
+                onClick={onClose}
+                className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-rose-500/10"
               >
                 <item.icon size={18} className="text-rose-400" />
                 {item.label}

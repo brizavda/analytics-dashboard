@@ -1,9 +1,7 @@
-import "./globals.css";
+"use client";
 
-export const metadata = {
-  title: "Analytics Dashboard",
-  description: "Interactive analytics dashboard",
-};
+import { ThemeProvider } from "next-themes";
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -11,9 +9,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-rose-50 text-gray-800">
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
