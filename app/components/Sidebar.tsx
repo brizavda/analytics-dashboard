@@ -10,24 +10,10 @@ const navItems = [
   { label: "Settings", href: "/dashboard", icon: Settings },
 ];
 
-interface SidebarProps {
-  open: boolean;
-  onClose: () => void;
-}
-
-export default function Sidebar({ open, onClose }: SidebarProps) {
+export default function Sidebar() {
   return (
-    <>
-      {/* Overlay (mobile) */}
-      {open && (
-        <div
-          onClick={onClose}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
-        />
-      )}
-
       <aside
-        className="
+        className=" hidden lg:flex flex-col h-screen
           fixed inset-y-0 left-0 z-50 w-64
           backdrop-blur-xl
           bg-[var(--card)]
@@ -39,7 +25,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         "
       >
 
-        <div className="flex flex-col px-6 py-8">
+        <div className="flex flex-col px-6 py-8 w-full">
           {/* Logo */}
           <h2 className="text-xl font-bold mb-10 text-foreground">
             <span className="text-accent">Analytics</span>
@@ -51,7 +37,6 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={onClose}
                 className="
                   flex items-center gap-3 px-4 py-2 rounded-lg
                   text-[var(--muted)]
@@ -66,6 +51,5 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </nav>
         </div>
       </aside>
-    </>
   );
 }

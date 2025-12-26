@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import MobileSidebar from "../components/MobileSidebar";
 import Sidebar from "../components/Sidebar";
 import DashboardHeader from "../components/ui/DashboardHeader";
 import RevenueChart from "../components/ui/RevenueChart";
@@ -9,33 +10,28 @@ import UsersOrdersChart from "../components/ui/UsersOrdersChart";
 import { dashboardStats } from "../data/mockData";
 
 export default function DashboardPage() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <div className="min-h-screen bg-background text-foreground">
       
-      <Sidebar
-        open={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
+      {/* Desktop Sidebar */}
+      <Sidebar />
+
+      {/* Mobile Sidebar */}
+      <MobileSidebar
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
       />
 
-      <main className="
-        flex-1
-        lg:ml-64
-        px-4 sm:px-8 xl:px-16
-        py-10
-        space-y-10
-        bg-background
-        text-foreground
-      ">
-        
-        <DashboardHeader
-          onMenuClick={() => setSidebarOpen(true)}
-        />
+      {/* Main */}
+      <main className="lg:ml-64 px-4 sm:px-6 py-6 space-y-8">
+
+        <DashboardHeader onMenuClick={() => setMobileOpen(true)} />
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {dashboardStats.map((stat) => (
-            <StatCard key={stat.id} {...stat} />
+            <StatCard key={stat.label} {...stat} />
           ))}
         </section>
 
@@ -43,7 +39,6 @@ export default function DashboardPage() {
           <RevenueChart />
           <UsersOrdersChart />
         </section>
-
       </main>
     </div>
   );
