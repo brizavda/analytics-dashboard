@@ -2,19 +2,27 @@
 
 import { usersOrdersData } from "@/app/data/chartData";
 import {
-    Bar,
-    BarChart,
-    Legend,
-    ResponsiveContainer,
-    Tooltip,
-    XAxis,
-    YAxis,
+  Bar,
+  BarChart,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
 } from "recharts";
 
 export default function UsersOrdersChart() {
   return (
-    <div className="bg-white dark:bg-[#18181f] rounded-xl p-6 shadow-sm">
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
+    <div
+      className="
+        bg-[var(--card)]
+        border border-[var(--border)]
+        rounded-2xl
+        p-6
+      "
+    >
+
+      <h3 className="text-lg font-semibold text-[var(--foreground)] mb-4">
         Users & Orders
       </h3>
 

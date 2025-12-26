@@ -12,14 +12,22 @@ export default function DashboardPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-black text-white">
+    <div className="flex min-h-screen bg-[var(--background)] text-[var(--foreground)]">
       
       <Sidebar
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
 
-      <main className="flex-1 lg:ml-64 px-4 sm:px-8 xl:px-16 py-10 space-y-10">
+      <main className="
+        flex-1
+        lg:ml-64
+        px-4 sm:px-8 xl:px-16
+        py-10
+        space-y-10
+        bg-background
+        text-foreground
+      ">
         
         <DashboardHeader
           onMenuClick={() => setSidebarOpen(true)}

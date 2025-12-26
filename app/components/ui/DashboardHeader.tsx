@@ -34,10 +34,17 @@ export default function DashboardHeader({
       {/* Usuario */}
       <div className="flex items-center gap-4">
         <ThemeToggle />
-        <div className="w-10 h-10 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-400 font-bold">
+        <div className="
+          w-9 h-9 rounded-full
+          bg-rose-500
+          text-white
+          flex items-center justify-center
+          font-semibold
+        ">
           I
         </div>
-        <span className="hidden sm:block text-sm text-gray-300">
+
+        <span className="font-medium text-[var(--foreground)]">
           Italia Barrón
         </span>
       </div>

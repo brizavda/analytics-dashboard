@@ -18,7 +18,7 @@ interface SidebarProps {
 export default function Sidebar({ open, onClose }: SidebarProps) {
   return (
     <>
-      {/* Overlay mobile */}
+      {/* Overlay (mobile) */}
       {open && (
         <div
           onClick={onClose}
@@ -27,28 +27,35 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       )}
 
       <aside
-        className={`
-          fixed top-0 left-0 z-50 h-screen w-64
-          bg-[#0f0f14] border-r border-white/5
-          transform transition-transform duration-300
-          ${open ? "translate-x-0" : "-translate-x-full"}
-          lg:translate-x-0
-        `}
+        className="
+          fixed top-0 left-0 h-screen w-64
+          bg-[var(--card)]
+          border-r border-[var(--border)]
+          text-[var(--foreground)]
+        "
       >
+
         <div className="flex flex-col px-6 py-8">
-          <h2 className="text-xl font-bold text-white mb-10">
-            <span className="text-rose-500">Analytics</span>
+          {/* Logo */}
+          <h2 className="text-xl font-bold mb-10 text-foreground">
+            <span className="text-accent">Analytics</span>
           </h2>
 
-          <nav className="flex flex-col gap-3">
+          {/* Navigation */}
+          <nav className="flex flex-col gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={onClose}
-                className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-rose-500/10"
+                className="
+                  flex items-center gap-3 px-4 py-2 rounded-lg
+                  text-[var(--muted)]
+                  hover:text-rose-500
+                  hover:bg-rose-500/10
+                "
               >
-                <item.icon size={18} className="text-rose-400" />
+                <item.icon size={18} className="text-accent" />
                 {item.label}
               </Link>
             ))}
