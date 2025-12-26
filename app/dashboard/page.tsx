@@ -9,13 +9,13 @@ import { dashboardStats } from "../data/mockData";
 
 export default function DashboardPage() {
   return (
-    <div className="flex min-h-screen bg-black text-white">
-      
-      {/* SIDEBAR (desktop + mobile) */}
+    <div className="min-h-screen bg-black text-white">
+
+      {/* SIDEBAR */}
       <Sidebar />
 
-      {/* MAIN CONTENT */}
-      <main className="flex-1 lg:ml-64 px-6 sm:px-10 xl:px-14 py-10 space-y-10 max-w-[1400px] mx-auto w-full">
+      {/* MAIN */}
+      <main className="lg:ml-64 px-6 sm:px-10 py-10 space-y-10">
         
         {/* HEADER */}
         <DashboardHeader />

@@ -33,15 +33,8 @@ export default function Sidebar() {
       )}
 
       {/* SIDEBAR */}
-      <aside
-        className={`
-          fixed inset-y-0 left-0 z-50 w-64
-          bg-[#0f0f14] border-r border-white/5
-          transform transition-transform duration-300
-          ${open ? "translate-x-0" : "-translate-x-full"}
-          lg:translate-x-0 lg:static lg:flex
-        `}
-      >
+      <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-64 bg-[#0f0f14] border-r border-white/5 z-40">
+
         <div className="flex flex-col w-full px-6 py-8">
           {/* LOGO */}
           <h2 className="text-xl font-bold text-white mb-10">

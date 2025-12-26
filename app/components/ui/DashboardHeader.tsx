@@ -1,6 +1,6 @@
 export default function DashboardHeader() {
   return (
-    <header className="flex items-start justify-between gap-4">
+    <header className="relative flex items-start justify-between gap-4 pl-14 lg:pl-0">
       {/* LEFT */}
       <div>
         <h1 className="text-3xl font-semibold text-white">
